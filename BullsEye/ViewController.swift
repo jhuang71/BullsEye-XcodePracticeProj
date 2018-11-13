@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var targetLabel: UILabel!
-    print("Hello")
+    
+    //testing git command line
     var currentVal: Int = 0
     var currentScore: Int = 0
     var currentRound: Int = 0
