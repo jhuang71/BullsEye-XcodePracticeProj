@@ -10,14 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var score: UILabel!
-    @IBOutlet weak var round: UILabel!
-    @IBOutlet weak var target: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var roundLabel: UILabel!
+    @IBOutlet weak var targetLabel: UILabel!
     
     var currentVal: Int = 0
     var currentScore: Int = 0
     var currentRound: Int = 0
-    var randomTarget = arc4random_uniform(101)
+    var randomTarget: Int = Int.random(in: 1...100)
 
     
     override func viewDidLoad() {
@@ -27,10 +27,10 @@ class ViewController: UIViewController {
         let roundedVal = slider.value.rounded()
         currentVal = Int(roundedVal)
     
-        score.text = String(currentScore)
-        round.text = String(currentRound)
-        target.text = String(randomTarget)
-        print(calScore(6))
+        scoreLabel.text = String(currentScore)
+        roundLabel.text = String(currentRound)
+        targetLabel.text = String(randomTarget)
+
     }
     
     
@@ -59,35 +59,40 @@ class ViewController: UIViewController {
         
     }
     
-    func updateLabel(){
-        incRound()
-        round.text = String(currentRound)
-        score.text = String(currentScore)
-        randomTarget = arc4random_uniform(101)
-        target.text = String(randomTarget)
-    }
-    
-    func incRound(){
-        currentRound += 1
-        // calculate percentage afterward
-    }
-    
-    func reset(){
+    @IBAction func reset(){
         currentRound = 0
         currentScore = 0
         
-        score.text = String(currentScore)
-        round.text = String(currentRound)
+        slider.value = 50
+        scoreLabel.text = String(currentScore)
+        roundLabel.text = String(currentRound)
         
-        randomTarget = arc4random_uniform(101)
-        target.text = String(randomTarget)
+        randomTarget = Int.random(in: 1...100)
+        targetLabel.text = String(randomTarget)
         
     }
     
-    func calScore(_ silderVal: Int) -> Int{
-        var int:Int = 2
-        int = int * silderVal
-        return int
+    func updateLabel(){
+        incRoundAndScore()
+        roundLabel.text = String(currentRound)
+        scoreLabel.text = String(currentScore)
+        randomTarget = Int.random(in: 1...100)
+        targetLabel.text = String(randomTarget)
+    }
+    
+    func incRoundAndScore(){
+        currentRound += 1
+        currentScore += calScore()
+    }
+    
+    
+    // () -> returnType
+    func calScore() -> Int{
+        var diff: Int = 0
+        diff = abs(randomTarget - currentVal)
+        
+        let score = 100 - diff
+        return score
     }
     
 }
