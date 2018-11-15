@@ -12,6 +12,7 @@
 		EA43A164218D356300709402 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA43A162218D356300709402 /* Main.storyboard */; };
 		EA43A166218D356500709402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA43A165218D356500709402 /* Assets.xcassets */; };
 		EA43A169218D356500709402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA43A167218D356500709402 /* LaunchScreen.storyboard */; };
+		EA65C356219B80D8007084BB /* gitcommit.rtf in Resources */ = {isa = PBXBuildFile; fileRef = EA65C355219B80D8007084BB /* gitcommit.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EA43A165218D356500709402 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA43A168218D356500709402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA43A16A218D356500709402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA65C355219B80D8007084BB /* gitcommit.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = gitcommit.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				EA43A165218D356500709402 /* Assets.xcassets */,
 				EA43A167218D356500709402 /* LaunchScreen.storyboard */,
 				EA43A16A218D356500709402 /* Info.plist */,
+				EA65C355219B80D8007084BB /* gitcommit.rtf */,
 			);
 			path = BullsEye;
 			sourceTree = "<group>";
@@ -122,6 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA65C356219B80D8007084BB /* gitcommit.rtf in Resources */,
 				EA43A169218D356500709402 /* LaunchScreen.storyboard in Resources */,
 				EA43A166218D356500709402 /* Assets.xcassets in Resources */,
 				EA43A164218D356300709402 /* Main.storyboard in Resources */,

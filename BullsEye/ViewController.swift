@@ -15,10 +15,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var targetLabel: UILabel!
     
     //testing git command line
-    var currentVal: Int = 0
-    var currentScore: Int = 0
-    var currentRound: Int = 0
-    var randomTarget: Int = Int.random(in: 1...100)
+    var currentVal = 0
+    var currentScore = 0
+    var currentRound = 1
+    var randomTarget = Int.random(in: 1...100)
 
     
     override func viewDidLoad() {
@@ -38,16 +38,16 @@ class ViewController: UIViewController {
     
     @IBAction func showAlert(){
         // instanitate the alert box by giving it properties
-        let message = "The value of the slider is: \(currentVal) \n The expected value is: \(randomTarget)"
-        let alert = UIAlertController(title: "Hello, World!", message: message, preferredStyle: .alert)
+        let message = "You scored \(calScore()) points!!"
+        let alert = UIAlertController(title: "Nice Job!", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Awesome", style: .default, handler: nil)
         
         // adding the button to the alert box after hitting "Hit Me"
         // making it present by calling present function
         alert.addAction(action)
-        
         present(alert, animated: true, completion: nil)
-        updateLabel()
+        
+        startNextRound()
         
         
         
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func reset(){
-        currentRound = 0
+        currentRound = 1
         currentScore = 0
         
         slider.value = 50
@@ -73,7 +73,21 @@ class ViewController: UIViewController {
         
     }
     
-    func updateLabel(){
+    func title() -> String{
+        if(calScore() == 0){
+            return "Perfect!"
+        }
+        else if(calScore() < 5){
+            return "You almost had it!"
+        }
+        else if(calScore() < 10){
+            return "Not too bad!"
+        }else{
+            return "Not even close!"
+        }
+    }
+    
+    func startNextRound(){
         incRoundAndScore()
         roundLabel.text = String(currentRound)
         scoreLabel.text = String(currentScore)
@@ -89,8 +103,7 @@ class ViewController: UIViewController {
     
     // () -> returnType
     func calScore() -> Int{
-        var diff: Int = 0
-        diff = abs(randomTarget - currentVal)
+        let diff = abs(randomTarget - currentVal)
         
         let score = 100 - diff
         return score
